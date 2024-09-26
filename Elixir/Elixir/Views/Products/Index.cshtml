@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Elixir.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ViTri)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DienTich)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GiaThueHangThang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ViTri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DienTich)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaThueHangThang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand.BrandDescription)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaMatBang">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaMatBang">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaMatBang">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
